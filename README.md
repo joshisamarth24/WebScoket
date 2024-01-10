@@ -1,2 +1,2 @@
-# WebScoket
+# WebSocket
 Learning websockets
