@@ -22,6 +22,11 @@ io.on("connection",(socket)=>{
     socket.on("disconnect",()=>{
         console.log("user disconnected, socket id->",socket.id);
     });
+    socket.on("message",(msg)=>{
+        console.log(msg);
+        socket.broadcast.emit("recieve-message",msg);
+        
+    });
 })
 
 
