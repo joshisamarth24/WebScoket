@@ -24,8 +24,12 @@ io.on("connection",(socket)=>{
     });
     socket.on("message",(msg)=>{
         console.log(msg);
-        socket.broadcast.emit("recieve-message",msg);
+        socket.to(msg.room).emit("recieve-message",msg.message);
         
+    });
+    socket.on("join-room",(room)=>{
+        socket.join(room);
+        console.log(`joined room ${room}`);
     });
 })
 
